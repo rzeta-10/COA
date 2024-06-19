@@ -1,0 +1,77 @@
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x55facfe708e0 .scope module, "xor_nand_testbench" "xor_nand_testbench" 2 1;
+ .timescale 0 0;
+v0x55facfe85670_0 .var "a", 0 0;
+v0x55facfe85710_0 .var "b", 0 0;
+v0x55facfe857b0_0 .net "y", 0 0, L_0x55facfe86030;  1 drivers
+S_0x55facfe70a60 .scope module, "uut" "xor_nand_gate" 2 6, 3 1 0, S_0x55facfe708e0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a"
+    .port_info 1 /INPUT 1 "b"
+    .port_info 2 /OUTPUT 1 "y"
+L_0x55facfe85850 .functor AND 1, v0x55facfe85670_0, v0x55facfe85710_0, C4<1>, C4<1>;
+L_0x55facfe85940 .functor NOT 1, L_0x55facfe85850, C4<0>, C4<0>, C4<0>;
+L_0x55facfe85a00 .functor NOT 1, v0x55facfe85670_0, C4<0>, C4<0>, C4<0>;
+L_0x55facfe85a70 .functor NOT 1, v0x55facfe85710_0, C4<0>, C4<0>, C4<0>;
+L_0x55facfe85b10 .functor AND 1, L_0x55facfe85a00, L_0x55facfe85a70, C4<1>, C4<1>;
+L_0x55facfe85c50 .functor NOT 1, L_0x55facfe85b10, C4<0>, C4<0>, C4<0>;
+L_0x55facfe85d50 .functor AND 1, L_0x55facfe85940, L_0x55facfe85c50, C4<1>, C4<1>;
+L_0x55facfe85e60 .functor NOT 1, L_0x55facfe85d50, C4<0>, C4<0>, C4<0>;
+L_0x55facfe85f70 .functor NOT 1, L_0x55facfe85e60, C4<0>, C4<0>, C4<0>;
+L_0x55facfe86030 .functor BUFZ 1, L_0x55facfe85f70, C4<0>, C4<0>, C4<0>;
+v0x55facfe3a030_0 .net *"_s0", 0 0, L_0x55facfe85850;  1 drivers
+v0x55facfe84d00_0 .net *"_s12", 0 0, L_0x55facfe85d50;  1 drivers
+v0x55facfe84de0_0 .net *"_s4", 0 0, L_0x55facfe85a00;  1 drivers
+v0x55facfe84ea0_0 .net *"_s6", 0 0, L_0x55facfe85a70;  1 drivers
+v0x55facfe84f80_0 .net *"_s8", 0 0, L_0x55facfe85b10;  1 drivers
+v0x55facfe850b0_0 .net "a", 0 0, v0x55facfe85670_0;  1 drivers
+v0x55facfe85170_0 .net "and_1", 0 0, L_0x55facfe85e60;  1 drivers
+v0x55facfe85230_0 .net "b", 0 0, v0x55facfe85710_0;  1 drivers
+v0x55facfe852f0_0 .net "not_a", 0 0, L_0x55facfe85940;  1 drivers
+v0x55facfe853b0_0 .net "not_b", 0 0, L_0x55facfe85c50;  1 drivers
+v0x55facfe85470_0 .net "or_gate", 0 0, L_0x55facfe85f70;  1 drivers
+v0x55facfe85530_0 .net "y", 0 0, L_0x55facfe86030;  alias, 1 drivers
+    .scope S_0x55facfe708e0;
+T_0 ;
+    %vpi_call 2 13 "$display", "Output : " {0 0 0};
+    %vpi_call 2 14 "$display", "a b | y" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55facfe85670_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55facfe85710_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 17 "$display", "%b %b | %b", v0x55facfe85670_0, v0x55facfe85710_0, v0x55facfe857b0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55facfe85670_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55facfe85710_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 20 "$display", "%b %b | %b", v0x55facfe85670_0, v0x55facfe85710_0, v0x55facfe857b0_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55facfe85670_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55facfe85710_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 23 "$display", "%b %b | %b", v0x55facfe85670_0, v0x55facfe85710_0, v0x55facfe857b0_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55facfe85670_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55facfe85710_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 26 "$display", "%b %b | %b", v0x55facfe85670_0, v0x55facfe85710_0, v0x55facfe857b0_0 {0 0 0};
+    %vpi_call 2 28 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "xor_nand_testbench.v";
+    "xor_nand.v";

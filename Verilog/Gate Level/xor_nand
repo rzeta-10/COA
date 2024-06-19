@@ -1,0 +1,70 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x60df39fddae0 .scope module, "xor_nand_testbench" "xor_nand_testbench" 2 1;
+ .timescale 0 0;
+v0x60df39ff1760_0 .var "a", 0 0;
+v0x60df39ff1800_0 .var "b", 0 0;
+v0x60df39ff18d0_0 .net "y", 0 0, L_0x60df39ff1e70;  1 drivers
+S_0x60df39fddc70 .scope module, "uut" "xor_nand_gate" 2 6, 3 1 0, S_0x60df39fddae0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+L_0x60df39ff19d0 .functor NAND 1, v0x60df39ff1760_0, v0x60df39ff1800_0, C4<1>, C4<1>;
+L_0x60df39ff1b10 .functor NAND 1, L_0x60df39ff1bb0, L_0x60df39ff1c70, C4<1>, C4<1>;
+L_0x60df39ff1bb0 .functor NOT 1, v0x60df39ff1760_0, C4<0>, C4<0>, C4<0>;
+L_0x60df39ff1c70 .functor NOT 1, v0x60df39ff1800_0, C4<0>, C4<0>, C4<0>;
+L_0x60df39ff1d60 .functor NAND 1, L_0x60df39ff19d0, L_0x60df39ff1b10, C4<1>, C4<1>;
+L_0x60df39ff1e70 .functor NOT 1, L_0x60df39ff1d60, C4<0>, C4<0>, C4<0>;
+v0x60df39fcc1d0_0 .net *"_ivl_2", 0 0, L_0x60df39ff1bb0;  1 drivers
+v0x60df39ff1150_0 .net *"_ivl_4", 0 0, L_0x60df39ff1c70;  1 drivers
+v0x60df39ff1230_0 .net "a", 0 0, v0x60df39ff1760_0;  1 drivers
+v0x60df39ff12d0_0 .net "and_1", 0 0, L_0x60df39ff1d60;  1 drivers
+v0x60df39ff1390_0 .net "b", 0 0, v0x60df39ff1800_0;  1 drivers
+v0x60df39ff14a0_0 .net "not_a", 0 0, L_0x60df39ff19d0;  1 drivers
+v0x60df39ff1560_0 .net "not_b", 0 0, L_0x60df39ff1b10;  1 drivers
+v0x60df39ff1620_0 .net "y", 0 0, L_0x60df39ff1e70;  alias, 1 drivers
+    .scope S_0x60df39fddae0;
+T_0 ;
+    %vpi_call 2 13 "$display", "Output : " {0 0 0};
+    %vpi_call 2 14 "$display", "a b | y" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60df39ff1760_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60df39ff1800_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 17 "$display", "%b %b | %b", v0x60df39ff1760_0, v0x60df39ff1800_0, v0x60df39ff18d0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60df39ff1760_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60df39ff1800_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 20 "$display", "%b %b | %b", v0x60df39ff1760_0, v0x60df39ff1800_0, v0x60df39ff18d0_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60df39ff1760_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x60df39ff1800_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 23 "$display", "%b %b | %b", v0x60df39ff1760_0, v0x60df39ff1800_0, v0x60df39ff18d0_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60df39ff1760_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x60df39ff1800_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 26 "$display", "%b %b | %b", v0x60df39ff1760_0, v0x60df39ff1800_0, v0x60df39ff18d0_0 {0 0 0};
+    %vpi_call 2 28 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "xor_nand_testbench.v";
+    "xor_nand.v";
